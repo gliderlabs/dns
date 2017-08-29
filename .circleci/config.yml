@@ -19,3 +19,9 @@ jobs:
           name: Plan
           command: |
             ./terraform plan
+      - run:
+          name: Apply
+          command: |
+            if [[ "$CIRCLE_BRANCH" == "master" ]]; then
+              ./terraform apply
+            fi
