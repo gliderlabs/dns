@@ -14,8 +14,8 @@ jobs:
       - run:
           name: Initialize Terraform
           command: |
-            terraform init
+            ./terraform init
       - run:
           name: Plan
           command: |
-            terraform plan
+            ./terraform plan
