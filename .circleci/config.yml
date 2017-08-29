@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: alpine:3.6
+    steps:
+      - checkout
+      - run:
+          name: Install Terraform
+          command: |
+            apk add -U openssl
+            wget https://releases.hashicorp.com/terraform/0.10.2/terraform_0.10.2_linux_amd64.zip
+            unzip terraform_0.10.2_linux_amd64.zip
+      - run:
+          name: Initialize Terraform
+          command: |
+            terraform init
+      - run:
+          name: Plan
+          command: |
+            terraform plan
