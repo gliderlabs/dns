@@ -55,6 +55,15 @@ resource "aws_route53_record" "alpine_gliderlabs_com" {
   records = ["global.prod.fastly.net."]
 }
 
+// alpine-test.gliderlabs.com -- testing fastly alpine package CDN
+resource "aws_route53_record" "alpine_test_gliderlabs_com" {
+  zone_id = "${aws_route53_zone.gliderlabs_com.zone_id}"
+  name = "alpine-test.gliderlabs.com"
+  type = "CNAME"
+  ttl = "300"
+  records = ["global.prod.fastly.net."]
+}
+
 // CLOUDFRONT
 
 resource "aws_route53_record" "cloudfront_gliderlabs_com" {
