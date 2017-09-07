@@ -41,9 +41,18 @@ resource "aws_route53_record" "slack_gliderlabs_com" {
 resource "aws_route53_record" "blog_gliderlabs_com" {
   zone_id = "${aws_route53_zone.gliderlabs_com.zone_id}"
   name = "blog.gliderlabs.com"
+  type = "A"
+  ttl = "300"
+  records = ["52.0.16.118", "52.1.119.170", "52.1.147.205", "52.4.145.119", "52.4.225.124", "52.5.181.79"]
+}
+
+// 63f04f4155d2cdad18334eb33f6f785f.blog.gliderlabs.com (medium)
+resource "aws_route53_record" "medium_gliderlabs_com" {
+  zone_id = "${aws_route53_zone.gliderlabs_com.zone_id}"
+  name = "63f04f4155d2cdad18334eb33f6f785f.blog.gliderlabs.com"
   type = "CNAME"
   ttl = "300"
-  records = ["63f04f4155d2cdad18334eb33f6f785f.blog.gliderlabs.com."]
+  records = ["f55cbbc844d85e309e60ebcc2ccd0bfe238ca837.comodoca.com."]
 }
 
 // alpine.gliderlabs.com -- fastly alpine package CDN
