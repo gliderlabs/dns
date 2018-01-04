@@ -45,3 +45,12 @@ resource "aws_route53_record" "beta_cmd_io" {
   ttl = "300"
   records = ["35.194.44.84"]
 }
+
+// omega.cmd.io
+resource "aws_route53_record" "omega_cmd_io" {
+  zone_id = "${aws_route53_zone.cmd_io.zone_id}"
+  name = "omega.cmd.io"
+  type = "A"
+  ttl = "300"
+  records = ["138.197.52.88"]
+}
